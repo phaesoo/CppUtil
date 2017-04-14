@@ -115,6 +115,7 @@
     <ClCompile Include="CSVUtil.cpp" />
     <ClCompile Include="FileFormatUtil.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pairing.cpp" />
     <ClCompile Include="PerfChecker.cpp" />
     <ClCompile Include="TextUtil.cpp" />
   </ItemGroup>
@@ -123,8 +124,10 @@
     <ClInclude Include="CSVUtil.h" />
     <ClInclude Include="FileFormatUtil.h" />
     <ClInclude Include="MathDef.h" />
+    <ClInclude Include="Pairing.h" />
     <ClInclude Include="PerfChecker.h" />
     <ClInclude Include="Statistic.h" />
+    <ClInclude Include="Test_math.h" />
     <ClInclude Include="TextUtil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

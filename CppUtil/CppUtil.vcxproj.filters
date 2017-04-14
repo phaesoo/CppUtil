@@ -47,6 +47,9 @@
     <ClCompile Include="PerfChecker.cpp">
       <Filter>소스 파일\performance</Filter>
     </ClCompile>
+    <ClCompile Include="Pairing.cpp">
+      <Filter>소스 파일\math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextUtil.h">
@@ -69,6 +72,12 @@
     </ClInclude>
     <ClInclude Include="PerfChecker.h">
       <Filter>소스 파일\performance</Filter>
+    </ClInclude>
+    <ClInclude Include="Pairing.h">
+      <Filter>소스 파일\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_math.h">
+      <Filter>소스 파일\math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

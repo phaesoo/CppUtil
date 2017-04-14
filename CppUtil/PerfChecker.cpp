@@ -8,29 +8,29 @@ const double MEGA = 1.0e+6;
 
 bool PerfChecker::Start()
 {
-    if (run_flag_) { /*already running*/ assert(0); return false; }
+    if (_isRun) { /*already running*/ assert(0); return false; }
     Initialize();
-    run_flag_ = true;
+    _isRun = true;
     // start count
-    if (!QueryPerformanceCounter(&dummy_)) { assert(0); return false; }
-    check_.push_back(dummy_.QuadPart);
+    if (!QueryPerformanceCounter(&_dummy)) { assert(0); return false; }
+    _check.push_back(_dummy.QuadPart);
     return true;
 }
 
 bool PerfChecker::Check()
 {
-    if (!run_flag_) { /*do no running*/ assert(0); return false; }
-    if (!QueryPerformanceCounter(&dummy_)) { assert(0); return false; }
-    check_.push_back(dummy_.QuadPart);
+    if (!_isRun) { /*do no running*/ assert(0); return false; }
+    if (!QueryPerformanceCounter(&_dummy)) { assert(0); return false; }
+    _check.push_back(_dummy.QuadPart);
     return true;
 }
 
 bool PerfChecker::End()
 {
-    if (!run_flag_) { /*do no running*/ assert(0); return false; }
-    if (!QueryPerformanceCounter(&dummy_)) { assert(0); return false; }
-    check_.push_back(dummy_.QuadPart);
-    run_flag_ = false;
+    if (!_isRun) { /*do no running*/ assert(0); return false; }
+    if (!QueryPerformanceCounter(&_dummy)) { assert(0); return false; }
+    _check.push_back(_dummy.QuadPart);
+    _isRun = false;
     return true;
 }
 
@@ -40,9 +40,9 @@ bool PerfChecker::GetPerformTime(std::vector<double>& perform_time, bool accumul
     perform_time.clear();
 
     double accum_perftime = 0.0;
-    for (unsigned int i = 1; i < check_.size(); ++i)
+    for (unsigned int i = 1; i < _check.size(); ++i)
     {
-        const double unit_perftime = CalcPerformTime(check_[i - 1], check_[i]);
+        const double unit_perftime = CalcPerformTime(_check[i - 1], _check[i]);
         if (accumulate)
         {
             accum_perftime += unit_perftime;
@@ -55,20 +55,20 @@ bool PerfChecker::GetPerformTime(std::vector<double>& perform_time, bool accumul
 bool PerfChecker::GetTotalPerformTime(double& perform_time)
 {
     if (!CheckValidity()) { return false; }
-    perform_time = CalcPerformTime(*check_.begin(), *(--check_.end()));
+    perform_time = CalcPerformTime(*_check.begin(), *(--_check.end()));
     return true;
 }
 
 double PerfChecker::CalcPerformTime(const LONGLONG& start, const LONGLONG& end)
 {
-    if (!QueryPerformanceFrequency(&dummy_)) { assert(0); return 0.0; }
-    const double us = (end - start) * MEGA / static_cast<double>(dummy_.QuadPart); // micro second
+    if (!QueryPerformanceFrequency(&_dummy)) { assert(0); return 0.0; }
+    const double us = (end - start) * MEGA / static_cast<double>(_dummy.QuadPart); // micro second
     return  us * GetUnitFactor();
 }
 
 double PerfChecker::GetUnitFactor()
 {
-    switch (timeunit_)
+    switch (_timeunit)
     {
     case PerfChecker::Second:      return 1.0e-6;
     case PerfChecker::MilliSecond: return 1.0e-3;
@@ -81,6 +81,6 @@ double PerfChecker::GetUnitFactor()
 
 bool PerfChecker::CheckValidity()
 {
-    if (run_flag_ || check_.empty()) { assert(0); return false; }
+    if (_isRun || _check.empty()) { assert(0); return false; }
     return true;
 }

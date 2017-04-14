@@ -1,5 +1,5 @@
-#include <windows.h>
 #include <vector>
+#include <windows.h>
 #include <assert.h>
 
 class PerfChecker
@@ -14,11 +14,11 @@ public:
 
 public:
     PerfChecker()
-        : timeunit_(Second),
-        run_flag_(false) { Initialize(); }
+        : _timeunit(Second),
+        _isRun(false) { Initialize(); }
     PerfChecker(TimeUnit timeunit)
-        : timeunit_(timeunit),
-        run_flag_(false) { Initialize(); }
+        : _timeunit(timeunit),
+        _isRun(false) { Initialize(); }
 
     ~PerfChecker() {}
 
@@ -30,24 +30,24 @@ public:
     bool GetTotalPerformTime(double& perform_time);
 
     // Util
-    void SetUnit(const TimeUnit unit) { timeunit_ = unit; }
+    void SetUnit(const TimeUnit unit) { _timeunit = unit; }
 
 private:
     // Calculate
     double CalcPerformTime(const LONGLONG& start, const LONGLONG& end);
     double GetUnitFactor();
 
-    void Initialize() { check_.clear(); }
+    void Initialize() { _check.clear(); }
     bool CheckValidity();
 
 private:
     // data
-    std::vector<LONGLONG> check_;
+    std::vector<LONGLONG> _check;
 
     // setting
-    TimeUnit timeunit_;
-    bool run_flag_;
+    TimeUnit _timeunit;
+    bool _isRun;
 
     // etc
-    LARGE_INTEGER dummy_;
+    LARGE_INTEGER _dummy;
 };
