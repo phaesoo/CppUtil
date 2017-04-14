@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\util">
+      <UniqueIdentifier>{3e22887d-9c60-425c-8bce-6af1e78d032b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\util\00 text">
+      <UniqueIdentifier>{d37960bd-0ca0-4b5f-ab30-515a0dc481ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\util\01 file">
+      <UniqueIdentifier>{eacb5030-291b-4b3b-8fb3-4414e96d4ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\util\02 cmd">
+      <UniqueIdentifier>{813f717f-7427-4a67-b808-d5f25fdb9de9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\math">
+      <UniqueIdentifier>{2b25a1b2-40d7-47e5-bcb4-8d71a5b091a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\performance">
+      <UniqueIdentifier>{88e1180e-13c2-4dad-9e98-7be52d52d4dd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TextUtil.cpp">
+      <Filter>소스 파일\util\00 text</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVUtil.cpp">
+      <Filter>소스 파일\util\01 file</Filter>
+    </ClCompile>
+    <ClCompile Include="CMDUtil.cpp">
+      <Filter>소스 파일\util\02 cmd</Filter>
+    </ClCompile>
+    <ClCompile Include="FileFormatUtil.cpp">
+      <Filter>소스 파일\util\01 file</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfChecker.cpp">
+      <Filter>소스 파일\performance</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TextUtil.h">
+      <Filter>소스 파일\util\00 text</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVUtil.h">
+      <Filter>소스 파일\util\01 file</Filter>
+    </ClInclude>
+    <ClInclude Include="CMDUtil.h">
+      <Filter>소스 파일\util\02 cmd</Filter>
+    </ClInclude>
+    <ClInclude Include="FileFormatUtil.h">
+      <Filter>소스 파일\util\01 file</Filter>
+    </ClInclude>
+    <ClInclude Include="MathDef.h">
+      <Filter>소스 파일\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Statistic.h">
+      <Filter>소스 파일\math</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfChecker.h">
+      <Filter>소스 파일\performance</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
