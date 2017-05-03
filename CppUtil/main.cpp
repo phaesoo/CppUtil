@@ -3,7 +3,7 @@
 
 int main()
 {
-    Test_math();
+    Test_Compare();
 
 
     return 0;

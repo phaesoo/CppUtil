@@ -50,6 +50,12 @@
     <ClCompile Include="Pairing.cpp">
       <Filter>소스 파일\math</Filter>
     </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>소스 파일\math</Filter>
+    </ClCompile>
+    <ClCompile Include="Probability.cpp">
+      <Filter>소스 파일\math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextUtil.h">
@@ -77,6 +83,15 @@
       <Filter>소스 파일\math</Filter>
     </ClInclude>
     <ClInclude Include="Test_math.h">
+      <Filter>소스 파일\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>소스 파일\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Compare.h">
+      <Filter>소스 파일\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Probability.h">
       <Filter>소스 파일\math</Filter>
     </ClInclude>
   </ItemGroup>

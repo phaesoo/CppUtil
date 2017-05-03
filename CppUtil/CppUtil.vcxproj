@@ -117,15 +117,20 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pairing.cpp" />
     <ClCompile Include="PerfChecker.cpp" />
+    <ClCompile Include="Probability.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="TextUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMDUtil.h" />
+    <ClInclude Include="Compare.h" />
     <ClInclude Include="CSVUtil.h" />
     <ClInclude Include="FileFormatUtil.h" />
     <ClInclude Include="MathDef.h" />
     <ClInclude Include="Pairing.h" />
     <ClInclude Include="PerfChecker.h" />
+    <ClInclude Include="Probability.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="Statistic.h" />
     <ClInclude Include="Test_math.h" />
     <ClInclude Include="TextUtil.h" />
