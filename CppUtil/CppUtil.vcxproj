@@ -126,6 +126,7 @@
     <ClInclude Include="Compare.h" />
     <ClInclude Include="CSVUtil.h" />
     <ClInclude Include="FileFormatUtil.h" />
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="MathDef.h" />
     <ClInclude Include="Pairing.h" />
     <ClInclude Include="PerfChecker.h" />
@@ -134,6 +135,7 @@
     <ClInclude Include="Statistic.h" />
     <ClInclude Include="Test_math.h" />
     <ClInclude Include="TextUtil.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

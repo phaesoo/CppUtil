@@ -27,6 +27,9 @@
     <Filter Include="소스 파일\performance">
       <UniqueIdentifier>{88e1180e-13c2-4dad-9e98-7be52d52d4dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\data structure">
+      <UniqueIdentifier>{d193c26a-510b-41d2-98cc-b9aa272bc0bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -93,6 +96,12 @@
     </ClInclude>
     <ClInclude Include="Probability.h">
       <Filter>소스 파일\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph.h">
+      <Filter>소스 파일\data structure</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>소스 파일\data structure</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
