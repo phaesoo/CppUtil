@@ -1,7 +1,7 @@
 #include <random>
 #include <ctime>
 #include <functional>
-#include <assert.h>
+#include <cassert>
 
 #include "Random.h"
 

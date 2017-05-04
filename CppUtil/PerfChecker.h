@@ -1,6 +1,6 @@
 #include <vector>
 #include <windows.h>
-#include <assert.h>
+#include <cassert>
 
 class PerfChecker
 {

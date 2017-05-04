@@ -2,36 +2,45 @@
 
 #include <vector>
 #include <set>
-#include "Vertex.h"
+#include "Edge.h"
 
 template <typename T>
 class Graph
 {
-    using Edge = std::pair<Vertex<T>, Vertex<T>>;
+    std::vector< Vertex<T> > _vertices;
+    std::vector< Edge<T> > _edges;
 
 public:
     Graph(bool hasDirection = false)
         : _hasDirection(hasDirection) {}
 
 public:
-    bool AddVertex(Vertex<T> vt)
+    bool AddVertex(const Vertex<T>& vt)
     {
-        auto itr = find(_vertices.begin(), _vertices.end(), vt);
-        if (itr != _vertices.end())
+        if (IsExistVertex(vt))
         {
             // 중복
             assert(0);
             return false;
         }
+
         _vertices.push_back(vt);
+
         return true;
     }
 
-    bool AddEdge(const Edge&& edge)
+    bool IsExistVertex(const Vertex<T>& vt)
     {
+        return find(_vertices.begin(), _vertices.end(), vt) != _vertices.end();
+    }
+
+    bool AddEdge(Edge<T>& edge)
+    {
+        if (IsExistVertex(edge.GetHead()) && IsExistVertex(edge.GetHead()))
+
         if (!HasDirection())
         {
-            if (edge.first > edge.second)
+            if (!edge.IsSorted())
             {
                 // 작은수를 key로
                 assert(0);
@@ -51,7 +60,7 @@ public:
         return true;
     }
 
-    void FindNeighbor(Vertex<T> vt, std::set< Vertex<T> >& neighbor) const // 순서 자동정렬을위해 set사용
+    void GetAdjacent(Vertex<T> vt, std::vector< Vertex<T> >& neighbor) const // 순서 자동정렬을위해 set사용
     {
         neighbor.clear();
 
@@ -59,22 +68,21 @@ public:
         {
             if (itr->first == vt)
             {
-                neighbor.insert(itr->second);
+                neighbor.push_back(itr->second);
             }
             else if (itr->second == vt)
             {
-                neighbor.insert(itr->first);
+                neighbor.push_back(itr->first);
             }
         }
     }
 
-    std::vector<Vertex<T>> GetVertexes() { return _vertices; }
+    void AdjacentMatrix();
+
+    std::vector<Vertex<T>> GetVertices() { return _vertices; }
 
     bool HasDirection() { return _hasDirection; }
 
-private:
-    std::vector< Vertex<T> > _vertices;
-    std::vector<Edge> _edges;
-
+private: // properties
     bool _hasDirection;
 };

@@ -1,5 +1,5 @@
 #include <fstream>
-#include <assert.h>
+#include <cassert>
 
 #include "FileFormatUtil.h"
 #include "TextUtil.h"

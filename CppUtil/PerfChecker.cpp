@@ -1,5 +1,6 @@
 #include <algorithm>
-#include <assert.h>
+#include <cassert>
+#include <cassert>
 
 #include "PerfChecker.h"
 #include <xutility>

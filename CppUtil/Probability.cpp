@@ -1,7 +1,7 @@
 #include "Probability.h"
 
 #include <algorithm>
-#include <assert.h>
+#include <cassert>
 
 using namespace std;
 int Probability::Permutation(int n, int r, bool canRepeated /*= false*/)

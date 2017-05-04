@@ -1,6 +1,6 @@
-#include "FileFormatUtil.h"
+#include <cassert>
 
-#include <assert.h>
+#include "FileFormatUtil.h"
 
 using namespace std;
 

@@ -30,6 +30,9 @@
     <Filter Include="소스 파일\data structure">
       <UniqueIdentifier>{d193c26a-510b-41d2-98cc-b9aa272bc0bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\data structure\graph">
+      <UniqueIdentifier>{e2782ba1-42df-4663-886a-a689a19ba615}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -98,10 +101,13 @@
       <Filter>소스 파일\math</Filter>
     </ClInclude>
     <ClInclude Include="Graph.h">
-      <Filter>소스 파일\data structure</Filter>
+      <Filter>소스 파일\data structure\graph</Filter>
     </ClInclude>
     <ClInclude Include="Vertex.h">
-      <Filter>소스 파일\data structure</Filter>
+      <Filter>소스 파일\data structure\graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>소스 파일\data structure\graph</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

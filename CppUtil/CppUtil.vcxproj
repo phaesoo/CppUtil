@@ -125,6 +125,7 @@
     <ClInclude Include="CMDUtil.h" />
     <ClInclude Include="Compare.h" />
     <ClInclude Include="CSVUtil.h" />
+    <ClInclude Include="Edge.h" />
     <ClInclude Include="FileFormatUtil.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="MathDef.h" />
