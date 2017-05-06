@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <set>
+#include <algorithm>
 #include "Edge.h"
 
 template <typename T>
@@ -31,12 +31,20 @@ public:
 
     bool IsExistVertex(const Vertex<T>& vt)
     {
-        return find(_vertices.begin(), _vertices.end(), vt) != _vertices.end();
+        return std::find(_vertices.begin(), _vertices.end(), vt) != _vertices.end();
     }
 
     bool AddEdge(Edge<T>& edge)
     {
-        if (IsExistVertex(edge.GetHead()) && IsExistVertex(edge.GetHead()))
+        // 존재하지 않는 vertex일 경우 실패
+        if (!IsExistVertex(edge.GetHead()))
+        {
+            if (!IsExistVertex(edge.GetTail()))
+            {
+                assert(0);
+                return false;
+            }
+        }
 
         if (!HasDirection())
         {
@@ -48,7 +56,7 @@ public:
             }
         }
 
-        auto itr = find(_edges.begin(), _edges.end(), edge);
+        auto itr = std::find(_edges.begin(), _edges.end(), edge);
         if (itr != _edges.end())
         {
             // 중복
@@ -60,7 +68,7 @@ public:
         return true;
     }
 
-    void GetAdjacent(Vertex<T> vt, std::vector< Vertex<T> >& neighbor) const // 순서 자동정렬을위해 set사용
+    void GetAdjacent(Vertex<T> vt, std::vector< Vertex<T> >& neighbor) const
     {
         neighbor.clear();
 
@@ -77,7 +85,27 @@ public:
         }
     }
 
-    void AdjacentMatrix();
+    void GetAdjacentMatrix(std::vector< std::vector<int> >& matrix)
+    {
+        matrix.clear();
+
+        size_t sz = _vertices.size();
+
+        matrix.resize(sz);
+
+        for (auto i = 0; i < sz; ++i)
+        {
+            matrix[i].resize(sz, 0);
+
+            for (auto j = 0; j < sz; ++j)
+            {
+                if (std::find(_edges.begin(), _edges.end(), Edge<T>(_vertices[i], _vertices[j])) != _edges.end())
+                {
+                    matrix[i][j] = 1;
+                }
+            }
+        }
+    }
 
     std::vector<Vertex<T>> GetVertices() { return _vertices; }
 

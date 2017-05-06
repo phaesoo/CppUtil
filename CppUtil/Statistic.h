@@ -6,58 +6,24 @@
 
 namespace math
 {
-	template<typename T>
 	class Statistic
 	{
 	public:
 		Statistic() = delete;
 
-		static double Mean(const std::vector<T>& vals);
-		static double Variance(const std::vector<T>& vals, bool isPopulation=false);
-		static double StandartDeviation(const std::vector<T>& vals, bool isPopulation=false);
+		static double Mean(const std::vector<double>& vals);
+		static double Variance(const std::vector<double>& vals, bool isPopulation=false);
+		static double StandartDeviation(const std::vector<double>& vals, bool isPopulation=false);
+
+        static double Covariance(const std::vector<double>& X, const std::vector<double>& Y);
+
+        // Population Correlation Coefficient
+        static double CorrCoef(const std::vector<double>& X, const std::vector<double>& Y);
+
+        // Sample Correlation Coefficient
+        static double PearsonCorrCoef(const std::vector<double>& X, const std::vector<double>& Y);
+
+    private:
+        static bool ValidateInput(const std::vector<double>& X, const std::vector<double>& Y);
 	};
-
-	template<typename T>
-	double Statistic<T>::Mean(const std::vector<T>& vals)
-	{
-		size_t size = vals.size();
-		if (size < 1) { return 0.0; }
-
-		double sum = 0.0;
-		for (size_t i = 0; i < size; ++i)
-		{
-			sum += vals[i];
-		}
-
-		return sum / size;
-	}
-
-	template<typename T>
-	double Statistic<T>::Variance(const std::vector<T>& vals, bool isPopulation=false)
-	{
-        size_t size = vals.size();
-		if (size < 2) { return 0.0; } // 데이터 1개이하의 분산 의미 없음
-
-		double mean = Mean(vals);
-
-		double sum = 0.0;
-		for (size_t i = 0; i < size; ++i)
-		{
-			sum += std::pow(vals[i] - mean, 2.0);
-		}
-
-		// 모분산이 아닐경우(표본)
-		if (!isPopulation)
-		{
-			size = size - 1;
-		}
-
-		return sum / size;
-	}
-
-	template<typename T>
-	double Statistic<T>::StandartDeviation(const std::vector<T>& vals, bool isPopulation=false)
-	{
-		return sqrt(Variance(vals, isPopulation));
-	}
 };

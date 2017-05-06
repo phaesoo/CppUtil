@@ -119,9 +119,11 @@
     <ClCompile Include="PerfChecker.cpp" />
     <ClCompile Include="Probability.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Statistic.cpp" />
     <ClCompile Include="TextUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Arithmetic.h" />
     <ClInclude Include="CMDUtil.h" />
     <ClInclude Include="Compare.h" />
     <ClInclude Include="CSVUtil.h" />
@@ -133,6 +135,7 @@
     <ClInclude Include="PerfChecker.h" />
     <ClInclude Include="Probability.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="SigFIg.h" />
     <ClInclude Include="Statistic.h" />
     <ClInclude Include="Test_math.h" />
     <ClInclude Include="TextUtil.h" />

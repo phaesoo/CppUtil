@@ -9,7 +9,7 @@ class Edge
 {
     std::pair< Vertex<T>, Vertex<T> > _data;
 public:
-    Edge(const T& vt_i, const T& vt_j)
+    Edge(const Vertex<T>& vt_i, const Vertex<T>& vt_j)
         : _data(std::make_pair(vt_i, vt_j)) {}
 
 public:

@@ -1,20 +1,19 @@
 #include "Test_math.h"
 #include "Graph.h"
 #include <type_traits>
+#include <iostream>
+
+using namespace std;
 
 int main()
 {
     Test_Compare();
 
-    Vertex<int> a(3);
+    Test_Graph();
 
-    //Edge<int> edge(1, 4);
+    Test_Statistic();
 
-    Graph<int> gr(false);
-    gr.AddVertex(std::move(a));
-    gr.AddVertex(Vertex<int>(4));
-    gr.AddVertex(5);
-    gr.AddEdge(Edge<int>(4,3));
+    Test_SigFig();
 
     return 0;
 }
