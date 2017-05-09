@@ -72,12 +72,7 @@ double Statistic::Covariance(const vector<double>& X, const vector<double>& Y)
 
 double Statistic::CorrCoef(const std::vector<double>& X, const std::vector<double>& Y)
 {
-    double cov = Covariance(X, Y);
-
-    double sd_X = StandartDeviation(X, true);
-    double sd_Y = StandartDeviation(Y, true);
-
-    return SafeDivide(cov, sd_X * sd_Y);
+    return SafeDivide(Covariance(X, Y), StandartDeviation(X, true) * StandartDeviation(Y, true));
 }
 
 double Statistic::PearsonCorrCoef(const vector<double>& X, const vector<double>& Y)
@@ -105,7 +100,7 @@ double Statistic::PearsonCorrCoef(const vector<double>& X, const vector<double>&
     }
 
     double upper = n *  sum_xy - sum_x * sum_y;
-    double lower = sqrt((n * (sum_x2)-pow(sum_x, 2.0)) * (n * (sum_y2)-pow(sum_y, 2.0)));
+    double lower = sqrt((n * sum_x2 - pow(sum_x, 2.0)) * (n * sum_y2 - pow(sum_y, 2.0)));
 
     return SafeDivide(upper, lower);
 }

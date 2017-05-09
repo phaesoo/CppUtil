@@ -8,6 +8,7 @@
 #include "Pairing.h"
 #include "Graph.h"
 #include "SigFig.h"
+#include "Regression.h"
 #include "Statistic.h"
 
 using namespace std;
@@ -102,6 +103,15 @@ void Test_SigFig()
     double c2 = Ceil(some2, 5);
     double f2 = Floor(some2, 5);
     double r2 = Round(some2, 5);
+
+    int z = 0;
+}
+
+void Test_LSM()
+{
+    vector<double> X{ 1.0, 3.0, 4.0, 5.0, 7.0, 10.0 };
+    vector<double> Y{ 2.5, 3.1, 3.5, 4.0, 5.0, 6.2 };
+    auto x = Regression::LSM(X, Y);
 
     int z = 0;
 }

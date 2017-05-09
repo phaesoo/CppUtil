@@ -15,5 +15,6 @@ int main()
 
     Test_SigFig();
 
+    Test_LSM();
     return 0;
 }

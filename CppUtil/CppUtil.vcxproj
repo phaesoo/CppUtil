@@ -42,7 +42,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -82,6 +82,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>./lib/eigen-eigen-67e894c6cd8f;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -119,6 +120,7 @@
     <ClCompile Include="PerfChecker.cpp" />
     <ClCompile Include="Probability.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Regression.cpp" />
     <ClCompile Include="Statistic.cpp" />
     <ClCompile Include="TextUtil.cpp" />
   </ItemGroup>
@@ -130,6 +132,8 @@
     <ClInclude Include="Edge.h" />
     <ClInclude Include="FileFormatUtil.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="MatrixAlgebra.h" />
+    <ClInclude Include="Regression.h" />
     <ClInclude Include="MathDef.h" />
     <ClInclude Include="Pairing.h" />
     <ClInclude Include="PerfChecker.h" />
@@ -141,7 +145,17 @@
     <ClInclude Include="TextUtil.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Eigen.3.3.3\build\native\Eigen.targets" Condition="Exists('..\packages\Eigen.3.3.3\build\native\Eigen.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Eigen.3.3.3\build\native\Eigen.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Eigen.3.3.3\build\native\Eigen.targets'))" />
+  </Target>
 </Project>
